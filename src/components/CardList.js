@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 
 const CardList = ({ robots }) => {
+	console.log('card list');
 	//if (true) {
 	//	throw new Error('Nooooo');
 	//}

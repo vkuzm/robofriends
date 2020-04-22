@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setSearchField, requestRobots } from '../actions';
+import Header from '../components/Header';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
@@ -8,7 +9,7 @@ import ErrorBoundry from '../components/ErrorBoundry'
 import '../components/app.css';
 
 const mapStateToProps = (state) => {
-  console.log("Subscribe to searchField and get value:", state.searchField);
+  //console.log("Subscribe to searchField and get value:", state.searchField);
 
   return {
     searchField: state.searchRobots.searchField,
@@ -21,7 +22,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => {
-      console.log("Do dispatcher for searchField with value:", event.target.value);
+      //console.log("Do dispatcher for searchField with value:", event.target.value);
       dispatch(setSearchField(event.target.value));
     },
     onRequestRobots: () => dispatch(requestRobots())
@@ -50,7 +51,7 @@ class App extends React.Component {
     } else {
       return (
         <div className='tc'>
-          <h1 className="f2">RoboFriends</h1>
+          <Header />
           <SearchBox searchChange={onSearchChange} />
           <Scroll>
             <ErrorBoundry>

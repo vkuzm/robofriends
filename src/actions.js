@@ -6,7 +6,7 @@ import {
 } from './constants';
 
 export const setSearchField = (text) => {
-	console.log("Do setSearchField action and save value:", text);
+	//console.log("Do setSearchField action and save value:", text);
 
 	return {
 		type: CHANGE_SEARCH_FIELD,

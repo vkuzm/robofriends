@@ -10,7 +10,7 @@ import {
 	}
 
 	export const searchRobots = (state=initalStateSearchRobots, action={}) => {
-		console.log("Do reducer for " + CHANGE_SEARCH_FIELD + " with value:", action.payload);
+		//console.log("Do reducer for " + CHANGE_SEARCH_FIELD + " with value:", action.payload);
 
 		switch (action.type) {
 			case CHANGE_SEARCH_FIELD:
