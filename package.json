@@ -21,10 +21,8 @@
     "start": "react-scripts start",
     "stop": "taskkill -F -IM node.exe",
     "build": "react-scripts build",
-    "test": "nyc ./node_modules/.bin/ava -v",
-    "eject": "react-scripts eject",
-    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "standard": "standard index.js"
+    "test": "react-scripts test --env=jsdom --watchAll",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,17 +43,6 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
-    "redux-mock-store": "^1.5.4",
-    "ava": "^0.16.0",
-    "co-exec": "^1.0",
-    "codecov": "^1.0.1",
-    "ghooks": "^1.2.4",
-    "nyc": "^10.0.0",
-    "standard": "^8.4.0"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run standard"
-    }
+    "redux-mock-store": "^1.5.4"
   }
 }
