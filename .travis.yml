@@ -9,7 +9,7 @@ script:
   - npm run test
   - npm run build
 
-#deploy:
+##deploy:
   #provider: heroku
   #app: robofr
   #api_key:
