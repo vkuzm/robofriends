@@ -18,7 +18,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const { onSearchChange, isPending, robots, error } = this.props;
+    const { onSearchChange, isPending, error } = this.props;
 
     if (isPending) {
       return <div className='tc pa5 ma5'><h1>Loading...</h1></div>
