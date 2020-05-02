@@ -6,5 +6,11 @@ cache:
   directories:
     - node_modules
 script:
-  - npm test
-  - npm run build
+  - npm run-script test
+  - npm run-script build
+
+#deploy:
+  #provider: heroku
+  #app: robofr
+  #api_key:
+    #secure: <your_secure_key>
