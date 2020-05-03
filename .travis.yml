@@ -1,19 +1,24 @@
 language: node_js
+
 node_js:
 - stable
+
 cache:
   directories:
   - node_modules
   - "$HOME/.sonar/cache"
+
 addons:
   sonarcloud:
     organization: "vkuzm"
     token:
       secure: PIflk5VKqr861F4AvwyW5HSUyyBAoRCKTcucA+eJlgHy/kn8RGrGEFTE3SYHVel15TDWxDj19Kwssk/qpbylQjAJYG4Y17gQzvVRmuIWNFNrq8XCHIaudOVBAPu9yincTl4fwVaNvUtKkUidO/yol016KvIgGeBYnySAKJTH3/+gX7ULaou+rkTaIYgCnilMMkesBBtGRZVv/gZfaQLyuC3KOKLD0lDhRkDKRzlRoJhmgIhmvDfB3QCuMGtu9mNotbEZtyt6Xcyb9cFMwS6q05i6agr5H1L+9fXvEynT5dSu3koBaA6OGiUZU3b2K9KnruDkrCButngN/gy5Z83hlWIstEt+Yvsuf8hF76bxZfdeA3HJjutCkE8nNHmt34rud1YEau+uC9tTaD07L+UWptcBRCuAPD+hQQO/6o5lh9pgtg0mbuc0F+pnKfOgAq2JPFC5xJrOMOzm3NHLXhAUMjMXe4UcmaMywRVzCoN+PjwLmYzjcYxEHp+wVtiQz4pcurtC+/M8oSgVt4xPHof2BVeuUwOv7v2AUT+S24KkDy5kkW2/dgBTCZ+d14lZezx4ZQVER3zdZxCfkITUoUWFupVRwSkeaQA6Q57+/u7/KIquYtjuqC5CZyAoRuOeJXoIedJcg3YN/BmK1rUudmZxOUx5XkZLYbbBZZCPGQEv19w=
+
 script:
 - npm run test
 - npm run build
 - sonar-scanner
+
 deploy:
   provider: heroku
   app: robofr
