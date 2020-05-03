@@ -1,16 +1,15 @@
-
 language: node_js
 node_js:
-  - "stable"
+- stable
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm run test
-  - npm run build
-
+- npm run test
+- npm run build
 deploy:
   provider: heroku
   app: robofr
+  local_dir: build
   api_key:
-    secure: FmI9DdsciMV3lsUIHXtgWlXCG5GidBd5E6eKi5pAaPFJsOc4XoAmPD/FhcDAtRwj+2Blsx4GAX4QRliOxm8xpe3x+nxhwTWLORTnNl8F1xnXBgysJewdjuTO7Ukxqb5vAM0ksYwuRy8sJPRABrNil31ruec/6Mmv05g6VIytMnB1bo4xseRTjTECN+7voWccnBo8EzidpyBHXCXPoJ5DwEVYcTKuVfqqmZKT498JpTxAJ8FJIKrIehTwburjxmM3t5VtiiXFP5vL8zthsyPuTWBIcQg462JpKtFEPZd6HXSd08UWvRNVY79CEKBxZimWSYl2MeYTh5w8ZKxDho4VUlnIjZTnmzwL4qzwSOq/5t+eC9K75IgIlqPnNWBCAkl7vSr5WotOlWDOOiqDmPlEyS3e6EEpLMudnk8nBbMr5JlI8S9z1r4QBAQaKa8E5v8ZI7Vlll5WqVTNISz6J2aqXVa4aktKSKQlD6Q+VslXZcbT7U00e62wBbyV8nSjsEd88CflcfJvi4+b3Otb/kC9/iLa276Vf7+EmdZsG9M9l41qq9G1S2fpAAkJAH24tvgFJMUJ4WzdzueKzWXjwn+nm6D74BTsbDJ6dgALBRR8lyXLdBUgLdwZmAIxhFc7t51tC5S2utI9/URZhDqb+XjACyb3a0TmL2o0de1sTBTUyzw=
+    secure: s0LHy/dxbWE1MsJ3ye79mTfnjjJaE/f8oDvutkUukQACQgciw7X+050aLa4kCsJ9Mm+86qcyIDCoWx4p02jH1S9lr9o6iNLIyH1y+iSQO4ratT5nL5A5Ot91FcZ/OKxBtd7aFI3pEVTM/VlNVdzSe60kSpr0cYHKi0SXAYSPP/OGQkpL0vMuEbtZdzU9ISrpejBKGw987ebmrOikYKo/QmuE7l4IOPjUPBKsEBQCLAaMkURYdw/h4sZ9v1z/0ZcExYL/XNM5u7MOz4f3rb6fOa4xwinAPfsW90NVj4e+l38/FcfrC78ZsgKrlTU5vPXVWtZFchKbNCqA5JM7cKo+fpIXeNwD4aF0fcBKTIQ3LkR4W/HwcY3q/uofwTOFMuCdQU6FudLfOYInfjOKzdCeKhwGgh81XSGRi/Nfg6HshRg4DXGsrsw5SQPx9xD8Ddp7uQY4IBg2eMdcnh6AbJpAKkHtGsCMyNbQjU072Re8uVohevKyQcwOmLAM4F1Y/VleXhIF8uwTV/QLn+qfpie0rdS+PWCG89yrHF40FbLJwlp1GCasDKEDk3t+4eD1jI4FJsC4MSxcoq/nWVTmatqrUvUHSd1Y9h5GdhD9IqkmMD6pPbqY8K7HT5Mz9ro46q9xI3HCxp+gDMiFLqdaepfKRcm+ltBs04wcGoNV0kI7dnY=
