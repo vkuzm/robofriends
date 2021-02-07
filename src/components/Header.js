@@ -6,7 +6,7 @@ class Header extends React.Component {
 	}
 
 	render() {
-		return <h1 className='f2'>Robofriends</h1>
+		return <h1 className='f2'>Robofriends CI/CD</h1>
 	}
 }
 
