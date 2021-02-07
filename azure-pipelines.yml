@@ -4,7 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+  batch: true
+  branches:
+    include:
+      - main
+      - master
+
+pr: none # will disable PR builds (but not CI builds)
 
 pool:
   vmImage: 'ubuntu-latest'
