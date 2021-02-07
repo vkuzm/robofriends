@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-  batch: true
+  batch: false
   branches:
     include:
       - main
@@ -35,7 +35,7 @@ stages:
 
 
 - stage: build_and_publish
-  #condition: and(succeeded(), eq(variables['Commitcomment'], 'Merge pull request'))
+  condition: and(succeeded(), eq(variables['Commitcomment'], 'Merge pull request'))
   jobs:
   - job: build_and_publish_job
     steps:
