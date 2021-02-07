@@ -34,6 +34,7 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+  displayName: 'made zip archive: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip" from "$(Build.BinariesDirectory)" folder'
     
 - task: PublishBuildArtifacts@1
   inputs:
