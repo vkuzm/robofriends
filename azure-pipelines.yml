@@ -33,6 +33,11 @@ stages:
   jobs:
   - job: build_and_publish_job
     steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '10.x'
+          
       - script: |
           npm run build
         displayName: 'Build app'
