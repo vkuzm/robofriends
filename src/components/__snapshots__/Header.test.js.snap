@@ -4,6 +4,6 @@ exports[`Header component renders without crashing 1`] = `
 <h1
   className="f2"
 >
-  Robofriends CI/CD
+  Robofriends
 </h1>
 `;
