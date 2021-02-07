@@ -9,45 +9,54 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+stages:
+- stage: test
+  jobs:
+  - job: run_tests_job
+    steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '10.x'
 
-- script: |
-    npm install
-  displayName: 'Install dependencies'
+      - script: |
+          npm install
+        displayName: 'Install dependencies'
 
-- script: |
-    npm run test a -- --watchAll=false --coverage
-  displayName: 'Run tests'
+      - script: |
+          npm run test a -- --watchAll=false --coverage
+        displayName: 'Run tests'
 
-- script: |
-    npm run build
-  displayName: 'Build app'
 
-- task: CopyFiles@2
-  displayName: 'Copy files'
-  inputs:
-    sourceFolder: 'build' 
-    Contents: '**/*'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    cleanTargetFolder: true
+- stage: build and publish
+  condition: and(succeeded(), eq(variables['Commitcomment'], 'Merge pull request'))
+  jobs:
+  - job: build_and_publish_job
+    steps:
+      - script: |
+          npm run build
+        displayName: 'Build app'
 
-- task: ArchiveFiles@2
-  displayName: 'Archive files'
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: zip
-    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    replaceExistingArchive: true
- 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish app'
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+      - task: CopyFiles@2
+        displayName: 'Copy files'
+        inputs:
+          sourceFolder: 'build' 
+          Contents: '**/*'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          cleanTargetFolder: true
 
+      - task: ArchiveFiles@2
+        displayName: 'Archive files'
+        inputs:
+          rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+          includeRootFolder: false
+          archiveType: zip
+          archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+          replaceExistingArchive: true
+      
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish app'
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
