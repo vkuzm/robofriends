@@ -40,4 +40,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-  displayName: 'Made zip file with a new build version'
+  displayName: 'Deploy'
