@@ -32,7 +32,7 @@ stages:
 
 
 - stage: build_and_publish
-  condition: and(succeeded(), eq(variables['Commitcomment'], 'Merge pull request'))
+  condition: and(succeeded(), ne(variables[‘Build.Reason’], ‘PullRequest’))
   jobs:
   - job: build_and_publish_job
     steps:
